@@ -1,5 +1,5 @@
-//This program illustrates the main features of the C++ programming language
-//This program does not cover the object-oriented features of C++
+//This program illustrates the main features of the C++ programming language.
+//This program does not cover the object-oriented features of C++.
 
 
 // this is a one-line comment
@@ -16,7 +16,7 @@ This is a multi-line comment
  * see?
  */
 
-#include <iostream> //include statement for shared libraries
+#include <iostream> //include statement for shared libraries (e.g., C++ Standard Library)
 #include "myFunctions.cpp" // include statement for our own code (bad practice to include .cpp, we usually include .h files)
 
 
@@ -83,8 +83,8 @@ using namespace std; //this namespace is defined in the C++ standard library
 //the main function is entry point of the program
 int main() {
 
-    //statements in C++ end with a ;
-    //blank spaces in C++ and comments in C++ are ignored by the compiler:
+    //statements in C++ end with a semicolon: ;
+    //blank spaces and comments in C++ are ignored by the compiler.
     //hence, we can have multiple statements in one line like this:
     //int a = 1; cout<<a<<endl; a = 123 * 23; cout<<a<<endl;
 
@@ -127,11 +127,12 @@ int main() {
 }
 
 void references() {
-    //there are some type of variables that are called references
+    //there are variables that are called references.
     //we declare them by using & right after the variable type
 
-    //references act as aliases of other variables
-    //the main use of references is when passing variables to functions, in order to reduce memory consumption
+    //references act as aliases of other variables.
+    //the main use of references is when passing variables to functions, in order to reduce memory consumption,
+    //by avoiding making copies of the variables at each function call
 
     //references and pointers are similar (they store memory addresses of other variables)
 
@@ -146,6 +147,7 @@ void references() {
     //I can't do this, because a reference has to be declared and initialized at the same time
     //int &refToInteger2;
 
+    //passing a regular variable "by reference"
     functionPassByReference(integer);
     cout << "integer was modified by the function: " << integer << endl;
 
@@ -159,35 +161,36 @@ int &functionThatReturnsAReference() {
     //we can return references in a function, but...
     //you should not return a reference of a local variable because once the function returns,
     //the variable is destroyed (i.e., deallocated from the memory Stack),
-    //and attempting to use the reference somewhere else will lead to a program crash
+    //and attempting to use the reference somewhere else will lead to a program crash.
     int variable = 24;
     return variable;
 }
 
 void functionPassByReference(int &integer) {
-    //modifying a reference (i.e., setting a value) here will modify the variable of the original variable
+    //modifying a reference (i.e., setting a value) here will modify the variable of the original variable.
+    //a reference variable is set as a regular variable (with the operator =).
     integer = 67;
 }
 
 void operatorPrecedence() {
 
     //operators have an order of evaluation/execution, which is defined by the C++ language specification.
-    //the compiler will follow that order when parsing and compiling the code
-    //we can use parentheses to group expressions and define the order of evaluation/execution
+    //the compiler will follow that order when parsing and compiling the code.
+    //however, we can use parentheses to group expressions and explicitly define the order of evaluation/execution ourselves.
 
     int a = 2, b = 3, c = 6, result1 = 0, result2 = 0;
 
     //arithmetic operators.
-    //operator precedence here is *, then /, and then +
+    //operator precedence here is: * is first evaluated, then /, and then +
     result1 = a * b / c + a;
     result2 = ((a * b) / c) + a;
 
-    //both result variables will have the same result
-    //the parentheses illustrate the order of execution of the expressions
+    //both result variables will have the same result.
+    //the parentheses illustrate the order of execution of the expressions.
     cout << "Result1 is: " << result1 << endl;
     cout << "Result2 is: " << result2 << endl;
 
-    //this is a different operation, and the operator precedence is honored:  *, then /, and then +
+    //this is a different order of the operators. However, the operator precedence is honored: first  *, then /, and then +
     result1 = a / c * b + a;
     result2 = (a / (c * b)) + a;
 
@@ -198,7 +201,7 @@ void operatorPrecedence() {
 
     bool d = true, e = false, f = true, result3 = false, result4 = false;
 
-    //operator precedence in this case is ==, then &&, and then ||
+    //operator precedence in this case is: ==, then &&, and then ||
     //once again, the parentheses illustrate the order of execution of the expressions
     result3 = d || e && f == d && e || f;
     result4 = (d || (e && f)) == ((d && e) || f);
@@ -222,15 +225,17 @@ void assignmentOperations() {
 
 void typeModifiers() {
 
-    //the primitive types char, int, float, and double can use the modifiers signed, unsigned, short, and long.
-    //the modifiers are used to put constraints on the value range of the variables
+    //the primitive types char, int, float, and double can use the modifiers: signed, unsigned, short, and long.
+    //the modifiers are used to put constraints on the value range of the variables.
 
     char character = 'a'; //1 byte ; //-127 to 127 or 0 to 255
     unsigned char character2 = 'b'; //1 byte ; //0 to 255
     signed char character3 = 123; //1 byte ; //-127 to 127
 
-    cout << character3 << endl; //in will print the character corresponding to the ascii 123: {
+    cout << character3 << endl; //it will print the character corresponding to the ascii 123: {
 
+    //here it is shown how the modifiers are used and the respective amount of memory space the variable use as well as
+    //the value range of each variable
 
     int integer1 = 2147483647; //4 bytes ; //-2147483648 to 2147483647
     unsigned int integer2 = 4294967295; //4 bytes ; //0 to 4294967295
@@ -251,7 +256,6 @@ void typeModifiers() {
     float floatNumber = 4.45; //4 bytes ; //
     double doubleNumber = 3.40282347E+38; //8 bytes ; //
     long double doubleNumber2 = 1.79769313486231570E+308; //12 bytes ; //
-
 
     cout << floatNumber << endl;
     cout << doubleNumber << endl;
@@ -276,25 +280,25 @@ void inputAndOutput() {
 
     }
 
-    //I can't use number because it is not declared in this scope, but in a different one.
-    //the compiler will detect the error for you
+    //I can't use number because it is not declared in this scope, but in a different one (as shown above).
+    //the compiler will detect the error for you.
     //number = 8 ;
 }
 
 void dynamicMemoryAllocation() {
 
-    //pointers and the "new" operator are used to allocate memory dynamically in the Heap
-    //the "delete" operator is used to deallocate memory
+    //pointers and the "new" operator are used to allocate memory dynamically in the Heap.
+    //the "delete" operator is used to deallocate variables from the Heap.
 
     int *pointer = new int(2); //new creates the integer 2 in the heap, rather than in the stack
     int *pointer2 = new int[10]; //allocates 10 contiguous integers in the heap (this is an array!)
     delete pointer; //memory is released
 
     //if you forget to delete local variables in this function, then you will create a memory leak
-    //memory leak = memory that is never deallocated, and it is not used anymore in the program
+    //memory leaks happen when variables are never deallocated, and they are not used anymore in the program
 
-    //while the following compiles, it is incorrect, because we reference a memory space that is deallocated
-    //in some cases, this will crash the program
+    //while the following compiles, it is incorrect, because we reference a memory space that is deallocated.
+    //in some cases, this will crash the program:
     //int number2 = *pointer;
     //cout << number2<< endl;
 
@@ -323,7 +327,7 @@ void dynamicMemoryAllocation() {
 }
 
 void printArrayOfDoubles(int arraySize, double *myArray) {
-    //this function prints an array of doubles in the [d1, d2, ..., dn] format
+    //this function prints an array of doubles in the format: [d1, d2, ..., dn]
     cout << "[";
     for (int counter2 = 0; counter2 < arraySize - 1; counter2++) {
         cout << myArray[counter2] << ", ";
@@ -335,12 +339,12 @@ void pointers() {
 
     //pointers are variables that hold the memory addresses of other variables.
     //they are useful to reference variables in the heap, and
-    //to avoid having copies/duplicates of the variables whenever there are function calls
+    //to avoid having copies/duplicates of the variables whenever there are function calls.
 
     cout << "---------------------------" << endl;
 
     float number = 1003.45; //a regular local variable
-    float *pointer = &number; //& gets the memory address of number, and it is stored in pointer
+    float *pointer = &number; //& gets the memory address of number, and it is stored in a pointer variable
     cout << "Memory address of number: " << pointer << endl;
 
     float number2 = *pointer; //here * obtains the value stored in the memory address, and it is assigned to number2
@@ -350,10 +354,10 @@ void pointers() {
     cout << "Value pointed by pointer is now: " << *pointer << endl;
     cout << "Number2 is still: " << number2 << endl;
 
-    //arrays are related to pointers
+    //arrays are related to pointers as seen here:
     const int arraySize = 10;
     int myArray[arraySize] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    int *myArrayPointer = myArray; //typically, array names are decayed into pointers (there are exceptions, though)
+    int *myArrayPointer = myArray; //typically, array names decay into pointers (there are exceptions, though)
 
     //we can do pointer arithmetic to access the elements of the array, as follows:
     int secondElement = *(myArrayPointer + 1); //accessing the second element of the array
@@ -367,14 +371,14 @@ void pointers() {
     cout << "arraySize is ";
     printArrayOfIntegers(arraySize, myArray);
 
-    //we have pointers of pointers (after all, pointers are also variables in memory)
+    //we can have pointers of pointers (after all, pointers are also variables in memory)
     int **pointerToPointer = &myArrayPointer;
     cout << "Memory address of myArrayPointer: " << pointerToPointer << endl;
 
 }
 
 void printArrayOfIntegers(const int arraySize, const int *myArray) {
-    //this function prints an array of inters in the [i1, i2, ..., in] format
+    //this function prints an array of inters in the format: [i1, i2, ..., in]
     cout << "[";
     for (int counter2 = 0; counter2 < arraySize - 1; counter2++) {
         cout << myArray[counter2] << ", ";
@@ -420,21 +424,22 @@ void multidimensionalArrays() {
 
 void loops() {
 
-    //loops in C++
+    //loops in C++.
+    //there are four types of loop in C++: the 'for' loop, the 'while' loop, the 'do-while' loop, and the 'range-based for' loop
 
     //a for loop has the following syntax:
     //     for (initializer; condition; update){
     //         ....
     //     }
     // where initializer is an (optional) expression that initializes a variable (typically a counter),
-    // the condition is an (optional) boolean expression that allows the for to execute while the condition evaluates to true,
-    // and the update is an (optional) arithmetic expression that increments the variable used in the initializer
+    // the condition is an (optional) boolean expression that makes the loop to execute its internal code while the condition evaluates to true,
+    // and the update is an (optional) arithmetic expression that increments or decrements the variable used in the initializer
 
 
-    //this is a for loop with only the condition
+    //this is a for loop with only the condition.
     //the for loop is executed until counter < 20 is false (i.e., it executes while counter < 20  is true)
     int counter = 10;
-    for (/*initialization*/; /*condition*/ counter < 20;/*update*/) {
+    for (/*initialization*/; counter < 20;/*update*/) {
         cout << "counter is " << counter << endl;
         counter++;
     }
@@ -449,8 +454,8 @@ void loops() {
 
     cout << "--------------------" << endl;
 
-    //for loop with the initializer, condition, and update statements
-    //it prints an array in [i1, i2, ...] format
+    //for loop with the initializer, condition, and update statements.
+    //it prints an array in the format: [i1, i2, ...]
     int arrayOfIntegers[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     cout << "arrayOfIntegers is [";
     for (int counter2 = 0; counter2 < 9; counter2++) {
@@ -480,7 +485,7 @@ void loops() {
 
     cout << "--------------------" << endl;
 
-    //this is a range-based for loop, which is used to iterate arrays, vectors, and other objects
+    //this is a range-based for loop, which is used to iterate arrays, vectors, and other objects that can be iterated
     for (const auto item : arrayOfIntegers) {
         cout << item << ", ";
     }
@@ -493,7 +498,7 @@ void singleDimensionArrays() {
 
     //arrays are variables that hold contiguous values in memory.
 
-    //the indices of the elements of arrays in C++ start with 0
+    //the indices of the elements of arrays in C++ start with 0,
     // i.e., 0 is used to access the first element, 1 for the 2nd element, 2 for the 3rd, etc.
 
     int arrayOfIntegers[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -511,10 +516,13 @@ void variablesAndTypes() {
     //all variables in C++ must be declared, i.e., they should have a type and a name.
 
     //while it is not mandatory to initialize the variables, it is **extremely** recommended to do so,
-    //otherwise, this will likely lead to  errors and bugs during the execution of the program
+    //otherwise, this will likely lead to errors and bugs during the execution of the program.
+    //if the variables are not initialized, they may contain rubbish values that would lead to program misbehavior.
 
     //this is a variable declaration, with no initialization
     int iAmAVariable;
+
+    cout << iAmAVariable << endl;
 
     //this is a variable declaration and the variable is initialized with a value
     int integer2 = 10;
@@ -536,10 +544,10 @@ void variablesAndTypes() {
 
     //however, once the type is inferred, a variable can only hold values of that type during the whole program execution.
     //attempting to set values of another type will lead to compilation errors.
-    //not valid:
+    //for example, this is not valid:
     //anotherNumber = anotherString;
 
-    //a constant
+    //this is a constant
     const int constant1 = 10;
     //not valid:
     //constant1 = 20;
@@ -580,7 +588,7 @@ void branchStatements() {
         case 11: {
             cout << "integer2 is 11" << endl;
             cout << "Yay!" << endl;
-            break; //the break statements must be used, otherwise, the next case(s) statements will execute as well
+            break; //the break statements must be used, otherwise, the next case statements will execute as well
         }
         case 1:
             cout << "integer2 is 1" << endl;
@@ -591,6 +599,7 @@ void branchStatements() {
         case 3:
             cout << "integer2 is 3" << endl;
             break;
+            //this is the "else" of the switch statement
         default:
             cout << "This is the default case" << endl;
             break;
@@ -616,7 +625,7 @@ void functionCalls() {
     float number = 45.4;
 
     //function calls
-    int integer = function1(); //no parameters to a function with a return
+    int integer = function1(); //calling a function with no parameters and a return
     integer = function2(12);
     integer = function3(result, number); //multiple parameters
     function4(); //a function that does not return anything (it is void)
@@ -652,8 +661,8 @@ void arithmeticOperations() {
     number2 = integer * number;
     number2 = integer / number;
     number2 = integer % integer2; //MODULO operation
-    number2 = integer++; //integer + 1
-    number2 = integer--; //integer - 1
-    number2 = -integer; //changing to negative integer
-    number2 = +integer; //changing to positive integer
+    number2 = integer++; //integer is increment by 1 and then assigned to number2
+    number2 = integer--; //integer is decremented by 1 and then assigned to number2
+    number2 = -integer; //changing to the negative integer
+    number2 = +integer; //changing to the positive integer
 }

@@ -3,7 +3,7 @@
 //
 
 int function1() {
-    return 0; //never forget to return a value!
+    return 0; //never forget to return a value! the compiler does not detect the error in some cases!
 }
 
 void function4() {
