@@ -1,8 +1,6 @@
 // By convention, the class declaration is placed in a .h file,
 // while the class definition or implementation is placed in a .cpp file
 
-
-
 #ifndef CPP_OO_INTRO_ANIMAL_H
 #define CPP_OO_INTRO_ANIMAL_H
 
@@ -11,6 +9,13 @@
 using namespace std;
 
 /*
+ * A class represents an object or entity from the domain of the program. For example, classes in the banking domain are:
+ * Account, Transaction, User, etc.
+ *
+ * A class has internal data (attributes, field, or just variables) and operations that work on that data (methods or functions).
+ *
+ * A class can have multiple instances, with its own data.
+ *
  * This is the abstract class Animal (this is the class declaration, the class implementation is found in Animal.cpp).
  * An abstract class represents an abstract concept that cannot be instantiated directly, but by using its subclasses.
  * Abstract class are those that have one or more virtual methods, e.g.:

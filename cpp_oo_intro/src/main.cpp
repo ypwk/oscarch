@@ -11,6 +11,7 @@
 #include <animals/Giraffe.h>
 #include <animals/birds/Bird.h>
 #include <animals/birds/Penguin.h>
+#include <exceptions/FoodException.h>
 #include "animals/Lion.h"
 
 //including a namespace
@@ -110,6 +111,34 @@ int main(int argc, char *argv[]) {
          << melman->kingdom
          << endl;
     Bird::printKingdom();
+
+
+    cout << "---------------------------" << endl;
+
+    //this illustrates the try-catch statement, which aims to catch and handle exceptions thrown by the program.
+    //an exception is an interruption or unexpected behavior of the program (e.g., errors).
+    //exceptions are thrown in different parts of the code, can be caught by the catch blocks (see below).
+
+    try {
+        food3 = "grass";
+        skipper->eat(food3); //here, eat will thrown an exception
+
+        cout << "This statement is not executed if an exception is thrown above (within the try)" << endl;
+    } catch (FoodException &ex) {
+        //here, an exception of type FoodException is caught and is taken cared of
+        cerr << "An food exception occurred: " << ex.what() << endl;
+    } catch (exception &ex) {
+        //here, other exceptions of type "exception" are taken cared of
+        cerr << "An exception occurred: " << ex.what() << endl;
+    } catch (...) {
+        //if an exception is not caught by any of the other catch statements, it is caught here!
+        cerr << "Unexpected error occurred" << endl;
+    }
+
+    //if a thrown exception is not caught (by a try-catch), the program will crash!!
+    //try uncommenting this and running the program; it will crash
+    //    food3 = "grass";
+    //    skipper->eat(food3);
 
     cout << "---------------------------" << endl;
 
