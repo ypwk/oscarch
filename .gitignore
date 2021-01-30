@@ -1,3 +1,5 @@
 .idea/
 cmake-build-debug
 build
+build-unix
+build-win-msys2
