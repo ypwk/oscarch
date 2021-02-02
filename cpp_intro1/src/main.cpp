@@ -17,7 +17,8 @@ This is a multi-line comment
  */
 
 #include <iostream> //include statement for shared libraries (e.g., C++ Standard Library)
-#include "myFunctions.cpp" // include statement for our own code (bad practice to include .cpp, we usually include .h files)
+//#include "myFunctions.cpp" // include statement for our own code (bad practice to include .cpp, we usually include .h files)
+#include "myFunctions.h"
 
 
 /************************************/
