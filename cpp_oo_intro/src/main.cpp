@@ -121,14 +121,14 @@ int main(int argc, char *argv[]) {
 
     try {
         food3 = "grass";
-        skipper->eat(food3); //here, eat will thrown an exception
+        skipper->eat(food3); //here, eat will throw an exception
 
         cout << "This statement is not executed if an exception is thrown above (within the try)" << endl;
     } catch (FoodException &ex) {
-        //here, an exception of type FoodException is caught and is taken cared of
+        //here, an exception of type FoodException is caught and is taken care of
         cerr << "An food exception occurred: " << ex.what() << endl;
     } catch (exception &ex) {
-        //here, other exceptions of type "exception" are taken cared of
+        //here, other exceptions of type "exception" are taken care of
         cerr << "An exception occurred: " << ex.what() << endl;
     } catch (...) {
         //if an exception is not caught by any of the other catch statements, it is caught here!
