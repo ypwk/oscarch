@@ -72,7 +72,7 @@ public:
     //these two are virtual functions, which are used to implement polymorphism in C++.
     //the "= 0" at the end of the methods indicates that they do not have definition/implementation in this class.
     //this is the main reason why we cannot instantiate this class directly, but through its subclasses.
-    //the subclasses must declare and implement these methods, unless they are declared static again
+    //the subclasses must declare and implement these methods, unless they are declared virtual again
 
     virtual void eat(string &food) = 0;
 
