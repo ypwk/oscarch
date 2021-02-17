@@ -23,6 +23,9 @@ file(GLOB_RECURSE SRC_FILES
 #include all source code files to generate an executable
 add_executable(a2-program ${SRC_FILES} )
 
-target_link_libraries(a2-program "${PROJECT_SOURCE_DIR}/lib/libalgos-win.a")
-
-
+#this line links the compiled code with the libalgos... library
+#replace [os] with:
+#   win (Windows users)
+#   ubuntu (Ubuntu/Linux users)
+#   mac (Mac OS users)
+target_link_libraries(a2-program "${PROJECT_SOURCE_DIR}/lib/libalgos-[os].a")
