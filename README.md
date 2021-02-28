@@ -9,4 +9,6 @@ Contents:
 3. [cpp_oo_intro](cpp_oo_intro): project that illustrates the object-oriented features of C++ (classes, inheritance, polymorphism, etc.).
 4. [memory_mgnt](memory_mgnt): small program used to illustrate how variables are created in the memory Stack and Heap (see the corresponding lecture about it).
 5. [libclient](libclient): base code for assignment #2. I illustrates how use libraries in a C++ program.
+6. [next_date](next_date): the instructor's next date program.
+7. [figures](figures): the instructor's figure printing program.
 
