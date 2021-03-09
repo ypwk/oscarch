@@ -8,7 +8,8 @@ Contents:
 2. [cpp_intro1](cpp_intro1): project that illustrates the basic features of C++ (variables, types, functions, pointers, etc.).
 3. [cpp_oo_intro](cpp_oo_intro): project that illustrates the object-oriented features of C++ (classes, inheritance, polymorphism, etc.).
 4. [memory_mgnt](memory_mgnt): small program used to illustrate how variables are created in the memory Stack and Heap (see the corresponding lecture about it).
-5. [libclient](libclient): base code for assignment #2. I illustrates how to use libraries in a C++ program.
+5. [libclient](libclient): base code for assignment #2. It illustrates how to use libraries in a C++ program.
 6. [next_date](next_date): the instructor's next date program.
 7. [figures](figures): the instructor's figure printing program.
+8. [trees](trees): base code for assignment #3. It implements a Binary Search Tree.
 
