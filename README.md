@@ -12,4 +12,4 @@ Contents:
 6. [next_date](next_date): the instructor's next date program.
 7. [figures](figures): the instructor's figure printing program.
 8. [trees](trees): base code for assignment #3. It implements a Binary Search Tree.
-9. [library](library): code that illustrates how to build a static C++ library with CMake. It is the library used in A2. To build it, you need to run in the .sh scripts, rather than using CLion.
+9. [library](library): code that illustrates how to build a static C++ library with CMake. It is the library used in A2. To build it, you need to run the .sh scripts, rather than using CLion.
