@@ -176,7 +176,7 @@ TreeNode<Object> *performSplaying(vector<TreeNode<Object> *> &visitedNodes) {
         TreeNode<Object> *grandParent = i > 1 ? visitedNodes[i - 2] : nullptr;
         TreeNode<Object> *parent = visitedNodes[i - 1];
 
-        //directions taken to navigate down to the parent and grandparent: (1: right, -1: left)
+        //directions taken to navigate down from the parent and grandparent: (1: right, -1: left)
         //0 means, the node does have a grandparent
         const short toGrandParent = grandParent != nullptr ? (grandParent->element < nodeToSplay->element ? 1 : -1) : 0;
         const short toParent = parent->element < nodeToSplay->element ? 1 : -1;
