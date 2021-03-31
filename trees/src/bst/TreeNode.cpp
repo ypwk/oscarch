@@ -15,8 +15,8 @@ TreeNode<Object>::TreeNode(Object element) {
 template<class Object>
 TreeNode<Object>::~TreeNode() {
     //the destructor destroys the node recursively, by destroying its children
-    if (left != nullptr) delete left;
-    if (right != nullptr) delete right;
+    delete left;
+    delete right;
     left = nullptr;
     right = nullptr;
 }
