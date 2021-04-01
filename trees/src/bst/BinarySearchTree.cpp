@@ -176,13 +176,13 @@ TreeNode<Object> *performSplaying(vector<TreeNode<Object> *> &visitedNodes) {
         TreeNode<Object> *grandParent = i > 1 ? visitedNodes[i - 2] : nullptr;
         TreeNode<Object> *parent = visitedNodes[i - 1];
 
-        //directions taken to navigate down from the parent and grandparent: (1: right, -1: left)
+        //directions that were taken to navigate down from the parent and grandparent: (1: right, -1: left)
         //0 means, the node does have a grandparent
-        const short toGrandParent = grandParent != nullptr ? (grandParent->element < nodeToSplay->element ? 1 : -1) : 0;
-        const short toParent = parent->element < nodeToSplay->element ? 1 : -1;
+        const short dirFromGrandParent = grandParent != nullptr ? (grandParent->element < nodeToSplay->element ? 1 : -1) : 0;
+        const short dirFromParent = parent->element < nodeToSplay->element ? 1 : -1;
 
-        if (toGrandParent == 0) { // no grandparent --> single zig
-            if (toParent == 1) { //zig left
+        if (dirFromGrandParent == 0) { // no grandparent --> single zig
+            if (dirFromParent == 1) { //zig left
                 TreeNode<Object> *bNode = nodeToSplay->left;
                 nodeToSplay->left = parent;
                 parent->right = bNode;
@@ -194,7 +194,7 @@ TreeNode<Object> *performSplaying(vector<TreeNode<Object> *> &visitedNodes) {
 
             i--;
         } else { //we have parent and grandparent, then we do double rotations
-            if (toParent == 1 && toGrandParent == -1) { //we need to do zig left and zig right
+            if (dirFromParent == 1 && dirFromGrandParent == -1) { //we need to do zig left and zig right
 
                 TreeNode<Object> *leftSubtree = nodeToSplay->left;
                 TreeNode<Object> *rightSubtree = nodeToSplay->right;
@@ -205,7 +205,7 @@ TreeNode<Object> *performSplaying(vector<TreeNode<Object> *> &visitedNodes) {
                 parent->right = leftSubtree;
                 grandParent->left = rightSubtree;
 
-            } else if (toParent == 1 && toGrandParent == 1) {//we need to do zig left and zig left
+            } else if (dirFromParent == 1 && dirFromGrandParent == 1) {//we need to do zig left and zig left
 
                 TreeNode<Object> *leftSubtree = nodeToSplay->left;
                 nodeToSplay->left = parent;
@@ -216,7 +216,7 @@ TreeNode<Object> *performSplaying(vector<TreeNode<Object> *> &visitedNodes) {
 
                 grandParent->right = parentLeftSubtree;
 
-            } else if (toParent == -1 && toGrandParent == -1) {//we need to do zig right and zig right
+            } else if (dirFromParent == -1 && dirFromGrandParent == -1) {//we need to do zig right and zig right
 
                 TreeNode<Object> *rightSubtree = nodeToSplay->right;
                 nodeToSplay->right = parent;
@@ -227,7 +227,7 @@ TreeNode<Object> *performSplaying(vector<TreeNode<Object> *> &visitedNodes) {
 
                 grandParent->left = parentRightSubtree;
 
-            } else if (toParent == -1 && toGrandParent == 1) {//we need to do zig right and zig left
+            } else if (dirFromParent == -1 && dirFromGrandParent == 1) {//we need to do zig right and zig left
 
                 TreeNode<Object> *leftSubtree = nodeToSplay->left;
                 TreeNode<Object> *rightSubtree = nodeToSplay->right;
