@@ -6,7 +6,7 @@
 #include <iostream>
 
 template<class Object>
-void ArrayUtilities<Object>::printArray(vector <Object> &inputArray) {
+void ArrayUtilities<Object>::printArray(vector<Object> &inputArray) {
     string str = "[";
     for (Object item  : inputArray) {
         str.append(toString(item));

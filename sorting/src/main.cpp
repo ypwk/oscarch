@@ -16,7 +16,7 @@ void insertionSortExampleFromFile();
 
 int main() {
 
-    vector<int> unsortedIntArray{0, 9, 10, 9};
+    vector<int> unsortedIntArray{42, 1, 6, 56, 54, 0, 7, 1};
     vector<Coordinate> unsortedCoordinates{Coordinate(3, 3), Coordinate(3, 1), Coordinate(2, 1),
                                            Coordinate(3, 0), Coordinate(2, 3)};
 
@@ -64,7 +64,7 @@ void insertionSortExampleFromFile() {
     //sort the numbers
     vector<int> sortedArray = InsertionSortIntegers(unsortedArray).sort();
 
-    cout << "Sorted int array: ";
+    cout << "Sorted int array: " <<endl;
     ArrayUtilities<int>::printArray(sortedArray);
 }
 
