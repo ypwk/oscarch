@@ -18,6 +18,9 @@ public:
     int x = -1;
     int y = -1;
 
+    //default constructor
+    Coordinate(){}
+
     //constructor
     Coordinate(int x, int y);
 

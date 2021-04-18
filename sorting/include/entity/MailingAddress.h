@@ -21,6 +21,9 @@ private:
 
 public:
 
+    //default constructor
+    MailingAddress(){};
+
     //constructor
     MailingAddress(string street, string city, string state, int zipCode);
 
