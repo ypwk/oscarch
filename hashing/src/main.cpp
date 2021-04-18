@@ -59,7 +59,7 @@ void hashFromFile( string& filePath ) {
     table.print();
 
     cout<< "Load Factor: " << table.getLoadFactor() << endl;
-    cout<< "Comparing the hash of two addresses: " << table.getLoadFactor() << endl;
+    cout<< "Comparing the hash of two addresses: " << endl;
 
     MailingAddress address2 = MailingAddress("450 Highland Ave", "Salem", "MA", 1970);
     cout << (table.contains(address2) ? ("Address was found: " ) : ("Address not found: ")) <<  address2.toString() << endl;
